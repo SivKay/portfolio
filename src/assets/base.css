@@ -1,0 +1,29 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-yellow: #ffbd39;
+  --vt-c-gray: #999999;
+  --vt-c-black: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
+}
+
+body {
+  width: min(1920px, 90%);
+  min-height: 100vh;
+  color: var(--vt-c-white);
+  background: var(--vt-c-black);
+  font-family: "Poppins", Arial, sans-serif;
+  margin-inline: auto;
+}
