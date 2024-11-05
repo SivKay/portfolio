@@ -16,11 +16,11 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 50px;
+  scroll-padding-top: 68px;
 }
 
 body {
-  width: min(1920px, 90%);
+  width: min(1280px, 90%);
   min-height: 100vh;
   color: var(--vt-c-white);
   background: var(--vt-c-black);

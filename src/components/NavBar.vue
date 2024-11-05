@@ -1,26 +1,54 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { onMounted, onBeforeMount } from "vue";
+
+const sections = ref([
+  { id: "home", name: "Home" },
+  { id: "about", name: "About" },
+  { id: "resume", name: "Resume" },
+  { id: "skills", name: "Skills" },
+  { id: "projects", name: "Projects" },
+  { id: "contact", name: "Contact" },
+]);
+
+const activeSection = ref("");
+
+onMounted(() => {
+  window.addEventListener("scroll", onScroll);
+});
+
+onBeforeMount(() => {
+  window.addEventListener("scroll", onScroll);
+});
+
+function setActiveSection(id) {
+  activeSection.value = id;
+}
+
+function onScroll() {
+  // Detect the currently active section based on scroll position
+  sections.value.forEach((section) => {
+    const element = document.getElementById(section.id);
+    const rect = element.getBoundingClientRect();
+    if (rect.top <= 80 && rect.bottom >= 60) {
+      activeSection.value = section.id;
+    }
+  });
+}
+</script>
 
 <template>
   <nav>
-    <img src="../assets/logo.svg" alt="logo" width="24" height="24" />
+    <a href="#home" class="navbar-logo">Kay</a>
     <ul>
-      <li class="nav-item">
-        <a href="#home" class="nav-link"><span>Home</span></a>
-      </li>
-      <li class="nav-item">
-        <a href="#about" class="nav-link"><span>About</span></a>
-      </li>
-      <li class="nav-item">
-        <a href="#resume" class="nav-link"><span>Resume</span></a>
-      </li>
-      <li class="nav-item">
-        <a href="#skills" class="nav-link"><span>Skills</span></a>
-      </li>
-      <li class="nav-item">
-        <a href="#projects" class="nav-link"><span>Projects</span></a>
-      </li>
-      <li class="nav-item">
-        <a href="#contact" class="nav-link"><span>Contact</span></a>
+      <li v-for="section in sections" class="nav-item" :key="section.id">
+        <a
+          :href="'#' + section.id"
+          class="nav-link"
+          :class="{ active: activeSection === section.id }"
+          @click="setActiveSection(section.id)"
+          ><span>{{ section.name }}</span></a
+        >
       </li>
     </ul>
   </nav>
@@ -39,6 +67,16 @@ nav {
   background-color: var(--vt-c-black);
 }
 
+.navbar-logo {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-decoration: none;
+  color: var(--vt-c-white);
+  padding: 1rem 0rem;
+  margin-right: 1rem;
+}
+
 nav ul {
   display: flex;
   align-items: center;
@@ -50,7 +88,8 @@ nav ul {
   cursor: pointer;
 }
 
-.nav-item:hover .nav-link span::before {
+.nav-item:hover .nav-link span::before,
+.nav-link.active span::before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -60,7 +99,7 @@ nav ul {
   color: var(--vt-c-white);
 }
 
-.nav-link:target {
+.nav-link.active {
   color: var(--vt-c-yellow) !important;
 }
 

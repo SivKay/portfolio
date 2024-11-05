@@ -1,14 +1,18 @@
 <script setup>
 import NavBar from "./components/NavBar.vue";
+import Home from "./components/Home.vue";
+import About from "./components/About.vue";
+import Resume from "./components/Resume.vue";
+import Skills from "./components/Skills.vue";
 </script>
 
 <template>
   <NavBar></NavBar>
 
-  <section id="home">Home</section>
-  <section id="about">About</section>
-  <section id="resume">Resume</section>
-  <section id="skills">Skills</section>
+  <Home />
+  <About />
+  <Resume />
+  <Skills />
   <section id="projects">Projects</section>
   <section id="contact">Contact</section>
 </template>
