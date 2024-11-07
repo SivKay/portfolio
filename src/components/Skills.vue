@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import SkillItem from "./SkillItem.vue";
+import htmlIcon from "../assets/html.svg";
+import cssIcon from "../assets/css.svg";
+import jsIcon from "../assets/js.svg";
 import angularIcon from "../assets/angular.svg";
 import primengIcon from "../assets/primeng.svg";
 import primeFlexIcon from "../assets/primeflex.svg";
@@ -11,6 +14,18 @@ import tailwindIcon from "../assets/tailwind.svg";
 import reactIcon from "../assets/react.svg";
 
 const skills = ref([
+  {
+    name: "HTML",
+    path: htmlIcon,
+  },
+  {
+    name: "CSS",
+    path: cssIcon,
+  },
+  {
+    name: "Javascript",
+    path: jsIcon,
+  },
   {
     name: "Angular",
     path: angularIcon,
@@ -64,15 +79,10 @@ const skills = ref([
 </template>
 
 <style scoped>
-section#skills {
-  padding-top: 7rem;
-  height: auto !important;
-}
-
 .skill-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 2.5rem;
 }
 
 .header h2 {
@@ -94,7 +104,7 @@ section#skills {
 
 @media (max-width: 1024px) {
   .skill-list {
-    gap: 1rem;
+    gap: 1.75rem;
   }
 }
 
@@ -111,6 +121,7 @@ section#skills {
 @media (max-width: 480px) {
   .skill-list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
   }
 }
 </style>

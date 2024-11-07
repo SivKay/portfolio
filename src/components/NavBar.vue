@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from "vue";
-import { onMounted, onBeforeMount } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
+const isOpenMobileNav = ref(false);
 const sections = ref([
   { id: "home", name: "Home" },
   { id: "about", name: "About" },
@@ -15,18 +15,20 @@ const activeSection = ref("");
 
 onMounted(() => {
   window.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onCloseNavbar);
 });
 
-onBeforeMount(() => {
-  window.addEventListener("scroll", onScroll);
+onUnmounted(() => {
+  window.removeEventListener("scroll", onScroll);
+  window.removeEventListener("resize", onCloseNavbar);
 });
 
 function setActiveSection(id) {
   activeSection.value = id;
+  isOpenMobileNav.value = false;
 }
 
 function onScroll() {
-  // Detect the currently active section based on scroll position
   sections.value.forEach((section) => {
     const element = document.getElementById(section.id);
     const rect = element.getBoundingClientRect();
@@ -34,6 +36,12 @@ function onScroll() {
       activeSection.value = section.id;
     }
   });
+}
+
+function onCloseNavbar() {
+  if (window.innerWidth >= 768) {
+    isOpenMobileNav.value = false;
+  }
 }
 </script>
 
@@ -51,6 +59,33 @@ function onScroll() {
         >
       </li>
     </ul>
+
+    <div class="mobile-nav">
+      <v-btn
+        color="var(--vt-c-white)"
+        :icon="isOpenMobileNav ? 'mdi-close' : 'mdi-menu'"
+        size="x-large"
+        variant="text"
+        @click="isOpenMobileNav = !isOpenMobileNav"
+      ></v-btn>
+      <v-expand-transition>
+        <ul v-show="isOpenMobileNav" class="mobile-nav-items">
+          <li
+            v-for="section in sections"
+            class="mobile-nav-item"
+            :key="section.id"
+          >
+            <a
+              :href="'#' + section.id"
+              class="mobile-nav-link"
+              :class="{ active: activeSection === section.id }"
+              @click="setActiveSection(section.id)"
+              ><span>{{ section.name }}</span></a
+            >
+          </li>
+        </ul>
+      </v-expand-transition>
+    </div>
   </nav>
 </template>
 
@@ -80,35 +115,44 @@ nav {
 nav ul {
   display: flex;
   align-items: center;
+  transition: all ease;
 }
 
-.nav-item {
+.nav-item,
+.mobile-nav-item {
   list-style-type: none;
-  padding: 0.75rem 1.25rem;
   cursor: pointer;
 }
 
 .nav-item:hover .nav-link span::before,
-.nav-link.active span::before {
+.nav-link.active span::before,
+.mobile-nav-item:hover .mobile-nav-link span::before,
+.mobile-nav-link.active span::before {
   visibility: visible;
   transform: scaleX(1);
 }
 
-.nav-link {
+.nav-link,
+.mobile-nav-link {
+  display: block;
   text-decoration: none;
+  padding: 0.75rem 1.25rem;
   color: var(--vt-c-white);
 }
 
+.mobile-nav-link.active,
 .nav-link.active {
   color: var(--vt-c-yellow) !important;
 }
 
+.mobile-nav-link span,
 .nav-link span {
   position: relative;
   font-weight: 500;
   padding-bottom: 2px;
 }
 
+.mobile-nav-link span::before,
 .nav-link span::before {
   content: "";
   position: absolute;
@@ -120,5 +164,30 @@ nav ul {
   visibility: visible;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  .mobile-nav-items {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 68px;
+    left: 0px;
+    width: 100%;
+    height: calc(100vh - 68px);
+    background: black;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
 }
 </style>

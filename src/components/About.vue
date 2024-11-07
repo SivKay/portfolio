@@ -1,4 +1,6 @@
 <script setup>
+import TelegramIcon from "./Icons/TelegramIcon.vue";
+
 function downloadCv() {
   const fileUrl = "../../public/test.pdf"; // Adjust the path based on your folder structure
   const link = document.createElement("a");
@@ -26,6 +28,40 @@ function downloadCv() {
         managers.
       </p>
 
+      <div class="social-medias">
+        <v-btn
+          href="https://www.facebook.com/sivkay.yinh"
+          variant="text"
+          color="var(--vt-c-gray)"
+          target="_blank"
+          rel="noopener noreferrer"
+          rounded="xl"
+        >
+          <v-icon icon="mdi-facebook"></v-icon>
+        </v-btn>
+        <v-btn
+          icon="mdi-linkedin"
+          href="https://www.linkedin.com/in/yinh-sivkay-7679141a5"
+          variant="text"
+          color="var(--vt-c-gray)"
+          target="_blank"
+          rel="noopener noreferrer"
+          rounded="xl"
+        >
+          <v-icon icon="mdi-linkedin"></v-icon>
+        </v-btn>
+        <v-btn
+          href="https://t.me/Sivkayy"
+          variant="text"
+          color="var(--vt-c-gray)"
+          target="_blank"
+          rel="noopener noreferrer"
+          rounded="xl"
+        >
+          <TelegramIcon />
+        </v-btn>
+      </div>
+
       <v-btn
         rounded="xl"
         size="large"
@@ -42,6 +78,10 @@ section#about {
   display: flex;
   padding-top: 7rem;
   height: auto !important;
+}
+
+.v-icon {
+  font-size: 2rem !important;
 }
 
 img {
@@ -74,6 +114,16 @@ img {
 .about-description {
   color: var(--vt-c-gray);
   margin-bottom: 1rem;
+}
+
+.social-medias > * {
+  width: 3rem !important;
+  min-width: 3rem !important;
+  height: 3rem !important;
+}
+
+.social-medias > *:hover {
+  color: var(--vt-c-yellow) !important;
 }
 
 @media (max-width: 1024px) {

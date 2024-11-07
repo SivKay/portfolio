@@ -4,6 +4,9 @@ import Home from "./components/Home.vue";
 import About from "./components/About.vue";
 import Resume from "./components/Resume.vue";
 import Skills from "./components/Skills.vue";
+import Projects from "./components/Projects.vue";
+import Contact from "./components/Contact.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
@@ -13,14 +16,14 @@ import Skills from "./components/Skills.vue";
   <About />
   <Resume />
   <Skills />
-  <section id="projects">Projects</section>
-  <section id="contact">Contact</section>
+  <Projects />
+  <Contact />
+
+  <Footer />
 </template>
 
 <style scoped>
 section {
-  width: 100%;
-  height: 300px;
-  border: 1px solid red;
+  padding-top: 7rem;
 }
 </style>

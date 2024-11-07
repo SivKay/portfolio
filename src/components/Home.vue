@@ -15,11 +15,12 @@
 section {
   position: relative;
   height: calc(100vh - 76px) !important;
+  padding-top: 0 !important;
 }
 
 section .profile {
   width: 65%;
-  height: inherit;
+  height: 100%;
   background-image: url("../assets/logo.svg");
   background-position: center center;
   background-repeat: no-repeat;
