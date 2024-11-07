@@ -88,7 +88,7 @@ async function onSubmit(event) {
           </div>
           <div>
             <h3>Address</h3>
-            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p>Street 150z, Toul Kork, Phnom Penh</p>
           </div>
         </div>
         <div class="contact-item">
@@ -119,7 +119,7 @@ async function onSubmit(event) {
         </div>
       </div>
       <div>
-        <v-sheet class="w-full pa-6 pa-md-16" color="#f8f9fa">
+        <v-sheet class="w-full px-6 px-md-16 py-16" color="#f8f9fa">
           <v-form ref="form" @submit.prevent="onSubmit">
             <v-text-field
               v-model="name"
@@ -168,12 +168,13 @@ async function onSubmit(event) {
 <style scoped>
 section {
   padding-top: 7rem;
+  margin-bottom: 4rem;
 }
 
 .header h2 {
   font-size: 3.125rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4.5rem;
 }
 
 .content-container {
@@ -226,6 +227,13 @@ section {
 
   .contact-item {
     gap: 1rem;
+  }
+
+  .icon {
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+    min-height: 80px;
   }
 }
 </style>

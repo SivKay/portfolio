@@ -19,16 +19,14 @@ function downloadCv() {
       <h1 class="title-shadow">About</h1>
       <h2>About Me</h2>
       <p class="about-description">
-        As a front-end seveloper. I have successfully designed the user
-        interface and worked closely with the backend team to integrate Apis.My
-        role has involved resolving technical issues, optimizing application
-        performance and exploring new technologies to ensure enhanced front-end
-        development.I have consistently maintained coding standards for code
-        reviews, team support and managing multiple tasks assigned by project
-        managers.
+        Equipped with hands-on experience in creating responsive and visually
+        appealing web interfaces. Proficient in Vue Js, Angular Js and React Js.
+        Able to collaborate and adapt well as a part of productive team. A fast
+        learner with a passion for staying updated with the latest technologies
+        and trends in web development.
       </p>
 
-      <div class="social-medias">
+      <div class="social-medias mb-4">
         <v-btn
           href="https://www.facebook.com/sivkay.yinh"
           variant="text"

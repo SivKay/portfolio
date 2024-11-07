@@ -19,17 +19,19 @@ const items = ref([
   },
   {
     id: 3,
-    date: "2014-2015",
+    date: "Apr/2014-Oct/2015",
     title: "Frontend Web Developer Internship",
     subTitle: "RRPS Pharmas",
-    description: "testing",
+    description:
+      "Work in a group of four developers to produce an e-commerce website, transform UI into website interfaces and integrate with firebase",
   },
   {
     id: 4,
-    date: "Feb/2022-Present",
+    date: "Feb/2023-Present",
     title: "Frontend Engineer",
-    subTitle: "Royal University of Phnom Penh",
-    description: "Testing",
+    subTitle: "IG Tech Group",
+    description:
+      "Work with UI designer to produce a responsive website, Collaborate closely with backend developers and the quality assurance team as well as clients to ensure to produce the quality work, implement code standard and reusable components and able to manage multiple tasks",
   },
 ]);
 </script>
