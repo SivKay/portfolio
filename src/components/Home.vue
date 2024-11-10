@@ -21,7 +21,7 @@ section {
 section .profile {
   width: 65%;
   height: 100%;
-  background-image: url("../assets/logo.svg");
+  background-image: url("../assets/profile.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

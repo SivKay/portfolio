@@ -168,7 +168,6 @@ async function onSubmit(event) {
 <style scoped>
 section {
   padding-top: 7rem;
-  margin-bottom: 4rem;
 }
 
 .header h2 {

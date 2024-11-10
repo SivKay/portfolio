@@ -2,10 +2,10 @@
 import TelegramIcon from "./Icons/TelegramIcon.vue";
 
 function downloadCv() {
-  const fileUrl = "../../public/test.pdf"; // Adjust the path based on your folder structure
+  const fileUrl = "../../public/cv.pdf";
   const link = document.createElement("a");
   link.href = fileUrl;
-  link.setAttribute("download", "yinh_sivkay_cv.pdf"); // Specify the file name
+  link.setAttribute("download", "yinh_sivkay_cv.pdf");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -14,7 +14,7 @@ function downloadCv() {
 
 <template>
   <section id="about">
-    <img src="../assets/logo.svg" alt="profile" />
+    <img src="../assets/profile.png" alt="profile" />
     <div class="about-container">
       <h1 class="title-shadow">About</h1>
       <h2>About Me</h2>

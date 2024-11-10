@@ -11,7 +11,7 @@ const sections = ref([
   { id: "contact", name: "Contact" },
 ]);
 
-const activeSection = ref("");
+const activeSection = ref("home");
 
 onMounted(() => {
   window.addEventListener("scroll", onScroll);
