@@ -2,7 +2,7 @@
 import TelegramIcon from "./Icons/TelegramIcon.vue";
 
 function downloadCv() {
-  const fileUrl = "../../public/cv.pdf";
+  const fileUrl = "/cv.pdf";
   const link = document.createElement("a");
   link.href = fileUrl;
   link.setAttribute("download", "yinh_sivkay_cv.pdf");
@@ -84,7 +84,6 @@ section#about {
 
 img {
   width: 40%;
-  padding-inline: 1rem;
 }
 
 .about-container {
